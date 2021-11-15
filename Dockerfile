@@ -1,8 +1,9 @@
 FROM debian:bullseye
 
-LABEL
+LABEL maintainer="Klemen Berkovic <klemen.berkovic1@um.si>"
+LABEL description="Debian image for ssh and apache servers."
 
-ARG PASSWORD
+ARG PASSWORD=password
 
 RUN apt update && apt install -y openssh-server apache2 supervisor 
 
