@@ -6,8 +6,6 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 	exit("Use POST method!!");
 }
 
-// define variables and set to empty values
-
 function test_input($data) {
 	$data = trim($data);
 	$data = stripslashes($data);

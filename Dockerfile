@@ -6,10 +6,7 @@ LABEL description="Debian image for ssh and apache servers."
 ARG PASSWORD=password
 
 RUN apt update \
- && apt install -y \
-        supervisor \
-  		  openssh-server \
-		  apache2 php libapache2-mod-php
+ && apt install -y supervisor openssh-server apache2 php libapache2-mod-php
 
 COPY files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY files/index.php /var/www/html/index.php
