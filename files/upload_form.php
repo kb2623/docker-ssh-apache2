@@ -21,13 +21,13 @@ if (empty($ime) || empty($priimek)) {
 }
 
 // Checks if user sent an empty form
-if(!empty(array_filter($_FILES['fileToUpload']['name']))) {
+if(!empty(array_filter($_FILES['files']['name']))) {
 	$target_dir = $ime . "_" . $priimek . "/";
 	mkdir($target_dir, 0777, true);
 	// Loop through each file in files[] array
-	foreach ($_FILES['fileToUpload']['tmp_name'] as $key => $value) {
-		$file_tmpname = $_FILES['fileToUpload']['tmp_name'][$key];
-		$file_name = $_FILES['fileToUpload']['name'][$key];
+	foreach ($_FILES['files']['tmp_name'] as $key => $value) {
+		$file_tmpname = $_FILES['files']['tmp_name'][$key];
+		$file_name = $_FILES['files']['name'][$key];
 		// Set upload file path
 		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 		// If file with name already exist then append time in
