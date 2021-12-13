@@ -29,12 +29,12 @@ if(!empty(array_filter($_FILES['files']['name']))) {
 		$file_tmpname = $_FILES['files']['tmp_name'][$key];
 		$file_name = $_FILES['files']['name'][$key];
 		// Set upload file path
-		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+		$target_file = $target_dir . $file_name;
 		// If file with name already exist then append time in
 		// front of name of the file to avoid overwriting of file
 		$file_ext = pathinfo($target_file, PATHINFO_EXTENSION);
 		if(file_exists($filepath)) {
-			$filepath = $target_dir.time() . $file_name;
+			$filepath = $target_dir . time() . $file_name;
 			if(move_uploaded_file($file_tmpname, $target_file)) {
 				echo "{$file_name} successfully uploaded <br />";
 			} else {
